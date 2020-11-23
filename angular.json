@@ -121,8 +121,16 @@
               "devServerTarget": "color-game:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "color-game"
+    }
+  },
+  "defaultProject": "color-game",
+  "cli": {
+    "analytics": false
+  }
 }
