@@ -1,22 +1,44 @@
 <div style="font-size: 50px;text-align: center;">
-  Hi My name is Shivaan
+  Hi My name is Shivaan 
+  <img *ngIf="!isSettings" id="settings" src="assets/settings.jpg" height="50px" width="50px" (click) = "onSettingsClick($event)">
+
 </div>
 
-<div style="text-align: center;">
-  <input style="font-size: 20px;" type="button" value="Red" (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="Green"  (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="Blue"  (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="Yellow"  (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="white" (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="orange" (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="LightBlue" (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="Black" (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="Teal" (click)="changeBodyColor($event)">
-  <input style="font-size: 20px;" type="button" value="Aqua" (click)="changeBodyColor($event)">
+<div *ngIf="!isSettings">
+
+
+  <div style="text-align: center;">
+    <input style="font-size: 20px;background-color: red;" type="button" value="Red"     (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: green;" type="button" value="Green"   (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: blue;" type="button" value="Blue"    (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: yellow;" type="button" value="Yellow"  (click)="changeBodyColor($event)">
+    <!-- <input style="font-size: 20px;background-color: white;" type="button" value="White"   (click)="changeBodyColor($event)"> -->
+    <input style="font-size: 20px;background-color: orange;" type="button" value="Orange"  (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: LightBlue;" type="button" value="LightBlue" (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: black;" type="button" value="Black"   (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: Pink;" type="button" value="Pink"  (click)="changeBodyColor($event)">
+    <input style="font-size: 20px;background-color: aqua;" type="button" value="Aqua"  (click)="changeBodyColor($event)">
+  </div>
+
+  <div style="text-align: center;">
+    <input type="text" siz="20" id="colorInput">
+    <img id="mic" src="assets/mic.jpg" height="50px" width="50px" (click) = "onMicClick($event)">
+
+  </div>
 </div>
 
-<div style="text-align: center;">
-  <input type="text" siz="20" id="colorInput">
-  <img id="mic" src="assets/mic.jpg" height="50px" width="50px">
 
+<div class="settings" *ngIf="isSettings">
+  <div>
+    <p>Adjust Sound Speed:</p>
+     <input type="range" id="volume" name="speed"
+           min="0" max="11" (change) = "onSpeedChange($event)">
+
+    <p>Adjust Sound Pitch:</p>
+    <input type="range" id="volume" name="pitch"
+          min="0" max="11" (change) = "onPitchChange($event)">
+
+  </div>
+  <input type= "button" (click) = "isSettings=false" value="Save">
+  
 </div>
